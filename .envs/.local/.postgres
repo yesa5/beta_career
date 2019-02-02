@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=sdu_beta_career
+POSTGRES_USER=oCgsSNbMIqPNnRhgfehAFesWbVtvkauK
+POSTGRES_PASSWORD=l5Y32vyf6PQEOyERSgWeW0K3yywcbRGAW0A9r5CHSPqRRiuTVDM9diSCle5NGjRM

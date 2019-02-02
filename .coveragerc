@@ -1,0 +1,5 @@
+[run]
+include = sdu_beta_career/*
+omit = *migrations*, *tests*
+plugins =
+    django_coverage_plugin
