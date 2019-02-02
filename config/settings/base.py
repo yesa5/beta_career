@@ -38,10 +38,23 @@ USE_TZ = True
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
+<<<<<<< HEAD
     'default': env.db(
         'DATABASE_URL',
         default="psql://sdu_beta_career:sdu_beta_career@127.0.0.1:5432/sdu_beta_career"
     ),
+=======
+    # 'default': env.db('DATABASE_URL'),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env('POSTGRES_DB_NAME', default='sdu_beta_career'),
+        'USER': env('POSTGRES_USER', default='sdu_beta_career'),
+        'PASSWORD': env('POSTGRES_PASSWORD', default='sdu_beta_career'),
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+
+>>>>>>> fixed config for DB
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
