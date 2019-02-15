@@ -10,14 +10,13 @@ before_install:
 
 install:
   - pip3 install -r requirements/local.txt
-  - pip3 install psycopg2 --quiet
 
 before_script:
   - psql -c "CREATE DATABASE sdu_beta_career;" -U postgres
   - psql -c "CREATE ROLE sdu_beta_career with password 'sdu_beta_career';" -U postgres
   - psql -c "GRANT ALL PRIVILEGES ON DATABASE sdu_beta_career to sdu_beta_career;" -U postgres
-  - psql -c "alter user sdu_beta_career login createdb;" -U postgres
+  - psql -c "ALTER USER sdu_beta_career LOGIN CREATEDB;" -U postgres
 
 script:
   - python manage.py migrate
-  - python manage.py test
+  - coverage run -m pytest
