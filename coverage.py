@@ -1,3 +1,4 @@
+import os
 import subprocess
 
 
@@ -6,24 +7,25 @@ def run_test_coverage():
     Simple run coverage and do:
      - Runs the tests
      - Check your test coverage
-     - Generate an HTML coverage report.
+     - Generates HTML coverage report under "htmlcov" directory.
     """
-    command = "coverage run -m pytest"
+    py_test_command = "coverage run -m pytest"
+
+    CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
     try:
-        subprocess.run(command.split())
+        subprocess.run(py_test_command.split())
+        coverage_dir = os.path.join(CURRENT_DIR, "htmlcov")
+        os.chdir(coverage_dir)
     except AttributeError:
         print("Please activate your local virtual environment and re-run this script.")
 
 
 def run_http_server():
-    pass
-
-
-def deactivate_venv():
-    pass
+    """Up & Run Simple HTTP Server with 8080 port."""
+    command = "python -m http.server 8080"
+    subprocess.run(command.split())
 
 
 if __name__ == "__main__":
     run_test_coverage()
-    deactivate_venv()
     run_http_server()
