@@ -18,8 +18,5 @@ class TestModelUser(TestCase):
         (User.ROLES.mentor, 3),
     ])
     def test_roles(self, role: int, expected: int):
-        new_user = User()
-        new_user.name = "Test User"
-        new_user.role = role
-        new_user.save()
+        new_user = User.objects.create(role=role, name='Test User')
         self.assertEquals(new_user.role, expected)
