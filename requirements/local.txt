@@ -25,5 +25,4 @@ django-extensions==2.1.4  # https://github.com/django-extensions/django-extensio
 django-coverage-plugin==1.6.0  # https://github.com/nedbat/django_coverage_plugin
 pytest-django==3.4.5  # https://github.com/pytest-dev/pytest-django
 
-django-choices==1.6.2 # https://github.com/bigjason/django-choices
 parameterized==0.7.0 # https://github.com/wolever/parameterized

@@ -4,19 +4,20 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
-from djchoices import ChoiceItem, DjangoChoices
+from model_utils import Choices
 
 
 class User(AbstractUser):
-    class RoleType(DjangoChoices):
-        student = ChoiceItem(1)
-        advisor = ChoiceItem(2)
-        approver = ChoiceItem(3)
-        mentor = ChoiceItem(4)
+    ROLES = Choices(
+        (0, "student", _("Student")),
+        (1, "advisor", _("Advisor")),
+        (2, "approver", _("Approver")),
+        (3, "mentor", _("Mentor")),
+    )
     # First Name and Last Name do not cover name patterns
     # around the globe.
     name = models.CharField(_("Name of User"), blank=True, max_length=255)
-    role = models.IntegerField(choices=RoleType.choices, default=RoleType.student)
+    role = models.IntegerField(choices=ROLES, default=ROLES.student)
 
     def get_absolute_url(self):
         return reverse("users:detail", kwargs={"username": self.username})

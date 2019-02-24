@@ -12,12 +12,12 @@ def test_user_get_absolute_url(user: settings.AUTH_USER_MODEL):
 
 class TestModelUser(TestCase):
     @parameterized.expand([
-        (User.RoleType.student, 1),
-        (User.RoleType.advisor, 2),
-        (User.RoleType.approver, 3),
-        (User.RoleType.mentor, 4),
+        (User.ROLES.student, 0),
+        (User.ROLES.advisor, 1),
+        (User.ROLES.approver, 2),
+        (User.ROLES.mentor, 3),
     ])
-    def test_roles(self, role, expected):
+    def test_roles(self, role: int, expected: int):
         new_user = User()
         new_user.name = "Test User"
         new_user.role = role
