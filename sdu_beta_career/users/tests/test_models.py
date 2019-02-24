@@ -1,6 +1,7 @@
 import pytest
 from django.conf import settings
 from django.test import TestCase
+from parameterized import parameterized, parameterized_class
 from ..models import User
 pytestmark = pytest.mark.django_db
 
@@ -10,29 +11,15 @@ def test_user_get_absolute_url(user: settings.AUTH_USER_MODEL):
 
 
 class TestModelUser(TestCase):
-    def test_default_user(self):
+    @parameterized.expand([
+        (User.RoleType.student, 1),
+        (User.RoleType.advisor, 2),
+        (User.RoleType.approver, 3),
+        (User.RoleType.mentor, 4),
+    ])
+    def test_roles(self, role, expected):
         new_user = User()
         new_user.name = "Test User"
+        new_user.role = role
         new_user.save()
-        self.assertEqual(new_user.role, 1)
-
-    def test_advisor_user(self):
-        new_user = User()
-        new_user.name = "Test User"
-        new_user.role = 2
-        new_user.save()
-        self.assertEqual(new_user.role, 2)
-
-    def test_mentor_user(self):
-        new_user = User()
-        new_user.name = "Test User"
-        new_user.role = 4
-        new_user.save()
-        self.assertEqual(new_user.role, 4)
-
-    def test_approve_user(self):
-        new_user = User()
-        new_user.name = "Test User"
-        new_user.role = 3
-        new_user.save()
-        self.assertEqual(new_user.role, 3)
+        self.assertEquals(new_user.role, expected)
