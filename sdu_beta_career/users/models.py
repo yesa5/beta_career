@@ -24,3 +24,7 @@ class User(AbstractUser):
 
     def get_user_name(self, abc: Dict) -> str:
         return self.name
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
