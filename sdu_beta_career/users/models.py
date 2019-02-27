@@ -9,10 +9,10 @@ from model_utils import Choices
 
 class User(AbstractUser):
     ROLES = Choices(
-        (0, "student", _("Student")),
-        (1, "advisor", _("Advisor")),
-        (2, "approver", _("Approver")),
-        (3, "mentor", _("Mentor")),
+        (1, "student", _("Student")),
+        (2, "advisor", _("Advisor")),
+        (3, "approver", _("Approver")),
+        (4, "mentor", _("Mentor")),
     )
     # First Name and Last Name do not cover name patterns
     # around the globe.
