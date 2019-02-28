@@ -1,5 +1,7 @@
 from django.test import TestCase
 from parameterized import parameterized
+
+from sdu_beta_career.users.factories.user import UserFactory
 from sdu_beta_career.users.models import User
 
 
@@ -11,5 +13,5 @@ class TestUser(TestCase):
         (User.ROLES.mentor, 4),
     ])
     def test_roles(self, role: int, expected: int):
-        new_user = User.objects.create(role=role, name='Test User')
-        self.assertEquals(new_user.role, expected)
+        user = UserFactory(role=role)
+        self.assertEquals(user.role, expected)
