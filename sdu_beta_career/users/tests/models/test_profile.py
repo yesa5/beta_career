@@ -11,4 +11,4 @@ class TestProfile(TestCase):
         Profile.objects.create(user=self.user)
 
         profiles = Profile.objects.all()
-        self.assertEquals(profiles.count(), 1)
+        self.assertEqual(profiles.count(), 1)

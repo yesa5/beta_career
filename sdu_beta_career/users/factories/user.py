@@ -6,5 +6,5 @@ class UserFactory(factory.Factory):
     class Meta:
         model = User
 
-    name = 'John'
+    name = factory.Sequence(lambda n: f"user_{n}")
     role = User.ROLES.student

@@ -14,4 +14,4 @@ class TestUser(TestCase):
     ])
     def test_roles(self, role: int, expected: int):
         user = UserFactory(role=role)
-        self.assertEquals(user.role, expected)
+        self.assertEqual(user.role, expected)
