@@ -27,4 +27,17 @@ class User(AbstractUser):
 
 
 class Profile(models.Model):
+    FACULTIES = Choices(
+        (1, 'engineering', _('Faculty of Engineering')),
+        (2, 'law', _('Faculty of Law')),
+        (3, 'education', _('Faculty of Education')),
+    )
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    course = models.IntegerField(null=True)
+    GPA = models.FloatField(null=True)
+    birth_date = models.DateField(null=True)
+    avatar = models.ImageField(null=True)
+    faculty = models.IntegerField(choices=FACULTIES, null=True)
+    linked_in = models.URLField(null=True)
+    github = models.URLField(null=True)
