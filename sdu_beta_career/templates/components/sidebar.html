@@ -32,7 +32,7 @@
           <span>General</span>
         </li>
         <li class="sidebar-dropdown active">
-          <a href="#">
+          <a href="{% url 'home' %}">
             <i class="fa fa-tachometer-alt"></i>
             <span>Dashboard</span>
             <span class="badge badge-pill badge-warning">New</span>
@@ -52,6 +52,12 @@
               </li>
             </ul>
           </div>
+        </li>
+        <li class="sidebar">
+          <a href="{% url 'profile' %}">
+            <i class="fa fa-user-circle"></i>
+            <span>My Profile</span>
+          </a>
         </li>
         <li class="sidebar-dropdown">
           <a href="#">
