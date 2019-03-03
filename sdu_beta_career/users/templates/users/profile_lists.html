@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block active_profile %} active {% endblock %}
+{% block main %}
+  <main class="page-content">
+    <div class="container-fluid">
+      <div class="row">
+		    <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+                <h4>Profiles</h4>
+            </div>
+            <div class="gaadiex-list">
+              {% for profile in profiles %}
+                <div class="gaadiex-list-item"><img class="gaadiex-list-item-img" src="http://www.free-icons-download.net/images/commercial-male-user-icon-32765.png" alt="List user">
+                  <div class="gaadiex-list-item-text">
+                    <h3><a href="{% url 'users:profile_detail' pk=profile.pk %}">{{ profile.user.username }}</a></h3>
+                    <h4>{{ profile.linked_in }}</h4>
+                      <p>Info about user</p>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+		    </div>
+	    </div>
+    </div>
+  </main>
+{% endblock %}

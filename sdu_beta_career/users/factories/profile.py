@@ -13,7 +13,7 @@ class ProfileFactory(factory.Factory):
 
     user = UserFactory()
     course = FuzzyInteger(1, 4).fuzz()
-    GPA = FuzzyFloat(0.0, 4.0).fuzz()
+    gpa = FuzzyFloat(0.0, 4.0).fuzz()
     birth_date = FuzzyDate(datetime.date(1996, 1, 1), datetime.date(2003, 1, 1)).fuzz()
     linked_in = factory.Sequence(lambda n: f"linked_in_{n}")
 

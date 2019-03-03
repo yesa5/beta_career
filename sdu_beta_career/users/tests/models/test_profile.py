@@ -24,3 +24,4 @@ class TestProfile(TestCase):
     def test_faculties(self, faculty: int, expected: int):
         profile = ProfileFactory(faculty=faculty)
         self.assertEqual(profile.faculty, expected)
+

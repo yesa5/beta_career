@@ -5,13 +5,10 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
 
-from sdu_beta_career.users.views import profile_detail_view
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
     path("about/", TemplateView.as_view(template_name="pages/about.html"), name="about"),
-    path("profile/", TemplateView.as_view(template_name="users/profile_details.html"), name="profile"),
-    path("profile/<int:pk>", profile_detail_view, name="profile_detail"),
 
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),

@@ -1,6 +1,7 @@
 from typing import Dict
 
 from django.contrib.auth.models import AbstractUser
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
@@ -34,10 +35,15 @@ class Profile(models.Model):
     )
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    course = models.IntegerField(null=True)
-    GPA = models.FloatField(null=True)
+    course = models.PositiveSmallIntegerField(null=True, validators=[MinValueValidator(1)])
+    gpa = models.DecimalField(
+        null=True,
+        validators=[MinValueValidator(0.0), MaxValueValidator(4.0)],
+        max_digits=3,
+        decimal_places=2
+    )
     birth_date = models.DateField(null=True)
     avatar = models.ImageField(null=True)
-    faculty = models.IntegerField(choices=FACULTIES, null=True)
+    faculty = models.PositiveSmallIntegerField(choices=FACULTIES, null=True)
     linked_in = models.URLField(null=True)
     github = models.URLField(null=True)
