@@ -19,7 +19,8 @@ class TestProfile(TestCase):
     @parameterized.expand([
         (Profile.FACULTIES.engineering, 1),
         (Profile.FACULTIES.law, 2),
-        (Profile.FACULTIES.education, 3),
+        (Profile.FACULTIES.economy, 3),
+        (Profile.FACULTIES.philosophy, 4),
     ])
     def test_faculties(self, faculty: int, expected: int):
         profile = ProfileFactory(faculty=faculty)

@@ -60,7 +60,7 @@ class ProfileDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ProfileDetailView, self).get_context_data(**kwargs)
-        context['profiles'] = Profile.objects.filter(pk=self.kwargs.get('pk'))
+        context['profile'] = Profile.objects.get(pk=self.kwargs.get('pk'))
         return context
 
 

@@ -31,7 +31,8 @@ class Profile(models.Model):
     FACULTIES = Choices(
         (1, 'engineering', _('Faculty of Engineering')),
         (2, 'law', _('Faculty of Law')),
-        (3, 'education', _('Faculty of Education')),
+        (3, 'economy', _('Faculty of Economy')),
+        (4, 'philosophy', _('Faculty of Philosophy')),
     )
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
