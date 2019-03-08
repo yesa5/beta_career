@@ -18,4 +18,10 @@ class UserAdmin(auth_admin.UserAdmin):
     search_fields = ["name"]
 
 
-admin.site.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ('id', 'user', 'faculty', 'course')
+    list_filter = ('course', 'faculty')
+    ordering = ('gpa', 'course', 'faculty')
+
+
+admin.site.register(Profile, ProfileAdmin)
