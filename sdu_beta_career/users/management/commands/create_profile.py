@@ -1,4 +1,5 @@
 import datetime
+import random
 
 from django.core.management.base import BaseCommand, CommandError
 
@@ -12,17 +13,17 @@ class Command(BaseCommand):
         try:
             profile_count = int(input('How many profiles should I create: '))
             for count in range(profile_count):
-                user = User.objects.create(username="user_{0}".format(count))
+                user = User.objects.create(username=f"user_{count}")
                 Profile.objects.create(
                     user=user,
-                    course=1,
-                    gpa=4.0,
+                    course=random.randint(1, 5),
+                    gpa=round(random.uniform(0, 5), 2),
                     birth_date=datetime.datetime(2020, 5, 17),
-                    linked_in="linkedIn.com/{0}".format(count)
+                    linked_in=f"linkedIn.com/{count}"
                 )
 
             self.stdout.write(self.style.SUCCESS(
-                'Successfully created {0} profiles'.format(profile_count))
+                f'Successfully created {profile_count} profiles')
             )
         except TypeError:
             raise CommandError('You must write an integer number.')
