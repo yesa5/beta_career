@@ -12,7 +12,7 @@ urlpatterns = [
     path("", view=user_list_view, name="list"),
     path("~redirect/", view=user_redirect_view, name="redirect"),
     path("~update/", view=user_update_view, name="update"),
+    path("profiles/", ProfileListView.as_view(), name="profile"),
+    path("profiles/<int:pk>", ProfileDetailView.as_view(), name="profile_detail"),
     path("<str:username>/", view=user_detail_view, name="detail"),
-    path("profiles/all", ProfileListView.as_view(), name="profile"),
-    path("profile/<int:pk>", ProfileDetailView.as_view(), name="profile_detail"),
 ]
