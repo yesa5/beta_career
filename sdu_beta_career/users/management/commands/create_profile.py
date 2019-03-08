@@ -16,10 +16,12 @@ class Command(BaseCommand):
                 user = User.objects.create(username=f"user_{count}")
                 Profile.objects.create(
                     user=user,
-                    course=random.randint(1, 5),
-                    gpa=round(random.uniform(0, 5), 2),
+                    course=random.randint(1, 4),
+                    gpa=round(random.uniform(0, 4), 2),
                     birth_date=datetime.datetime(2020, 5, 17),
-                    linked_in=f"linkedIn.com/{count}"
+                    linked_in=f"linkedIn.com/{count}",
+                    github=f"github.com/{count}",
+                    faculty=random.randint(1, 4)
                 )
 
             self.stdout.write(self.style.SUCCESS(
