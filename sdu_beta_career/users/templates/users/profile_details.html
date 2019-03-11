@@ -20,6 +20,7 @@
                     <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold">
                          {{ profile.user.username }}
                     </h2>
+                    <a href="{% url 'resumes:resume' pk=profile.pk %}" class="btn btn-primary waves-effect" >Resume</a>
                   </div>
                   <div class="ml-auto">
                     <input type="button" class="btn btn-primary d-none" id="btnDiscard" value="Discard Changes"/>
