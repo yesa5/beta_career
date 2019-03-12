@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import get_object_or_404
 from django.urls import reverse
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView
 
@@ -61,9 +62,28 @@ class ProfileDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ProfileDetailView, self).get_context_data(**kwargs)
-        context['profile'] = Profile.objects.get(pk=self.kwargs.get('pk'))
-        context['form'] = ProfileEditForm()
+        profile = Profile.objects.get(pk=self.kwargs.get('pk'))
+        context['profile'] = profile
+        context['form'] = ProfileEditForm(instance=profile)
         return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        profile = get_object_or_404(Profile, pk=self.kwargs.get('pk'))
+        form = ProfileEditForm(request.POST, instance=profile)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.user = Profile.objects.get(pk=self.kwargs.get('pk')).user
+            profile.save()
+            context = super(ProfileDetailView, self).get_context_data(**kwargs)
+            context['profile'] = profile
+            context['form'] = ProfileEditForm(instance=profile)
+            return self.render_to_response(context=context)
+        else:
+            context = super(ProfileDetailView, self).get_context_data(**kwargs)
+            context['profile'] = profile
+            context['form'] = ProfileEditForm(instance=profile)
+            return self.render_to_response(context=context)
 
 
 class ProfileListView(ListView):
