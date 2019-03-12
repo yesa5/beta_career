@@ -16,8 +16,8 @@ urlpatterns = [
     # User management
     path("users/", include("sdu_beta_career.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
-    #Resume
-    path("resume", include('sdu_beta_career.resumes.urls', namespace='resumes'))
+    # Resumes
+    path("resumes/", include('sdu_beta_career.resumes.urls', namespace='resumes'))
     # Your stuff: custom urls includes go here
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
