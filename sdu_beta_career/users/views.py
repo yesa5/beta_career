@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView
 
+from sdu_beta_career.users.forms import ProfileEditForm
 from sdu_beta_career.users.models import Profile
 
 User = get_user_model()
@@ -61,6 +62,7 @@ class ProfileDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ProfileDetailView, self).get_context_data(**kwargs)
         context['profile'] = Profile.objects.get(pk=self.kwargs.get('pk'))
+        context['form'] = ProfileEditForm()
         return context
 
 

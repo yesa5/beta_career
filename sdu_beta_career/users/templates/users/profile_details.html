@@ -35,7 +35,7 @@
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" id="connectedServices-tab" data-toggle="tab" href="#connectedServices"
-                         role="tab" aria-controls="connectedServices" aria-selected="false">Connected Services</a>
+                         role="tab" aria-controls="connectedServices" aria-selected="false">Edit</a>
                     </li>
                   </ul>
                   <div class="tab-content ml-1" id="myTabContent">
@@ -90,7 +90,22 @@
                     </div>
                     <div class="tab-pane fade" id="connectedServices" role="tabpanel"
                          aria-labelledby="ConnectedServices-tab">
-                      Facebook, Google, Twitter Account that are connected to this account
+                      <form method="POST" class="post-form" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% for field in form %}
+                          <div class="row">
+                            <div class="col-sm-3 col-md-2 col-5">
+                              <label for="{{ field.id_for_label }}" style="font-weight:bold;">{{ field.html_name }}</label>
+                            </div>
+                            <div class="col-md-8 col-6">
+                              {{ field }}
+                            </div>
+                          </div>
+                          <hr/>
+                        {% endfor %}
+                      <button type="submit" class="save btn btn-default">Save</button>
+                      </form>
+                      <hr/>
                     </div>
                   </div>
                 </div>
