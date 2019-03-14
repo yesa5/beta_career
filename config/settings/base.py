@@ -73,6 +73,7 @@ THIRD_PARTY_APPS = [
 ]
 LOCAL_APPS = [
     'sdu_beta_career.users.apps.UsersAppConfig',
+    'sdu_beta_career.resumes.apps.ResumesConfig',
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

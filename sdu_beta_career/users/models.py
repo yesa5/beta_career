@@ -48,3 +48,4 @@ class Profile(models.Model):
     faculty = models.PositiveSmallIntegerField(choices=FACULTIES, null=True)
     linked_in = models.URLField(null=True)
     github = models.URLField(null=True)
+    phone_number = models.CharField(blank=True, null=True, max_length=12)
