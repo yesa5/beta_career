@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 
 from sdu_beta_career.users.views import (
     user_list_view,
