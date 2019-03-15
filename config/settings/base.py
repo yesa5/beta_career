@@ -38,12 +38,10 @@ USE_TZ = True
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
-<<<<<<< HEAD
     'default': env.db(
         'DATABASE_URL',
         default="psql://sdu_beta_career:sdu_beta_career@127.0.0.1:5432/sdu_beta_career"
     ),
-=======
     # 'default': env.db('DATABASE_URL'),
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -54,7 +52,6 @@ DATABASES = {
         'PORT': '5432',
     }
 
->>>>>>> fixed config for DB
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
@@ -87,6 +84,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     'sdu_beta_career.users.apps.UsersAppConfig',
     'sdu_beta_career.resumes.apps.ResumesConfig',
+    'sdu_beta_career.reports.apps.ReportsConfig',
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
