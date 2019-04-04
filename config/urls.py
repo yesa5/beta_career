@@ -15,7 +15,7 @@ urlpatterns = [
 
     # User management
     path("users/", include("sdu_beta_career.users.urls", namespace="users")),
-    # path("accounts/", include("allauth.urls")),
+    path("accounts/", include("allauth.urls")),
     # Resumes
     path("resumes/", include('sdu_beta_career.resumes.urls', namespace='resumes'))
     # Your stuff: custom urls includes go here
