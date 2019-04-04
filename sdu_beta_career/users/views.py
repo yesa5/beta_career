@@ -86,10 +86,8 @@ class ProfileDetailView(DetailView):
 
 
 class ProfileListView(ListView):
+    context_object_name = 'profiles'
+    queryset = Profile.objects.all()
     template_name = 'users/profile_lists.html'
-    model = Profile
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['profiles'] = Profile.objects.all()
-        return context
+
