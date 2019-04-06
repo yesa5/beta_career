@@ -1,6 +1,5 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView
@@ -73,6 +72,7 @@ class ProfileDetailView(DetailView):
         return context
 
     def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
         profile = get_object_or_404(Profile, pk=self.kwargs.get('pk'))
         form = ProfileEditForm(request.POST, instance=profile)
         if form.is_valid():
