@@ -7,6 +7,8 @@ from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from model_utils import Choices
 
+from sdu_beta_career.access_control.models import AccessControl
+
 
 class User(AbstractUser):
     ROLES = Choices(
@@ -36,6 +38,7 @@ class Profile(models.Model):
     )
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    access_control = models.ForeignKey(AccessControl, on_delete=models.CASCADE, null=True)
     course = models.PositiveSmallIntegerField(null=True, validators=[MinValueValidator(1)])
     gpa = models.DecimalField(
         null=True,
