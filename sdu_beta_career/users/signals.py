@@ -1,14 +1,13 @@
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 
-from sdu_beta_career.access_control.models import AccessControl
 from sdu_beta_career.access_control.config import DEFAULT_ACCESS_CONTROL
+from sdu_beta_career.access_control.models import AccessControl
+from .models import User
 
-from .models import Profile
 
-
-@receiver(pre_save, sender=Profile)
-def profile_pre_save(sender, instance: Profile, *args, **kwargs):
+@receiver(pre_save, sender=User)
+def profile_pre_save(sender, instance: User, *args, **kwargs):
     """
     Pre save actions on Prole.
 

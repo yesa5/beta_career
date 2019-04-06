@@ -21,6 +21,7 @@ class User(AbstractUser):
     # around the globe.
     name = models.CharField(_("Name of User"), blank=True, max_length=255)
     role = models.IntegerField(choices=ROLES, default=ROLES.student)
+    access_control = models.ForeignKey(AccessControl, on_delete=models.CASCADE, null=True)
 
     def get_absolute_url(self):
         return reverse("users:detail", kwargs={"username": self.username})
@@ -38,7 +39,6 @@ class Profile(models.Model):
     )
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    access_control = models.ForeignKey(AccessControl, on_delete=models.CASCADE, null=True)
     course = models.PositiveSmallIntegerField(null=True, validators=[MinValueValidator(1)])
     gpa = models.DecimalField(
         null=True,
