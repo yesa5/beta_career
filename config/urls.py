@@ -5,7 +5,6 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
 
-
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/index.html"), name="home"),
     path("about/", TemplateView.as_view(template_name="pages/about.html"), name="about"),
@@ -17,8 +16,9 @@ urlpatterns = [
     path("users/", include("sdu_beta_career.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Resumes
-    path("resumes/", include('sdu_beta_career.resumes.urls', namespace='resumes'))
+    path("resumes/", include('sdu_beta_career.resumes.urls', namespace='resumes')),
     # Your stuff: custom urls includes go here
+    path("account/login/", TemplateView.as_view(template_name="account/account_login.html"), name="login")
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
