@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+   <main class="page-content">
+    <div class="container-fluid" style="">
+
+
+  <h1 align="center">Companies</h1>
+
+
+
+
+
+{% for company in companies %}
+
+<div class="company_list"  style="background-color: #eeeeee; margin-bottom: 20px; padding-bottom: 5px; border-radius: 5px; margin-right:20px;">
+  <h3 style="margin: 10px; padding: 10px;"><a href="">{{ company.name }}</a></h3>
+        <a href="" style="margin-left: 10px;" >{{ company.address }}</a>
+        <p style="margin-left: 10px;">{{ company.description|linebreaksbr }}</p>
+
+
+
+</div>
+
+ {% endfor %}
+
+    </div>
+  </main>
+
+{% endblock %}

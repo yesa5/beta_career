@@ -76,6 +76,7 @@ LOCAL_APPS = [
     'sdu_beta_career.resumes.apps.ResumesConfig',
     'sdu_beta_career.reports.apps.ReportsConfig',
     'sdu_beta_career.access_control.apps.AccessControlConfig',
+    'sdu_beta_career.companies.apps.CompaniesConfig',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
