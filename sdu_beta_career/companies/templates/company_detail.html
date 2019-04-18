@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block main %}
+  <main class="page-content">
+    <div class="company"  style="background-color: #eeeeee; border-radius: 5px;  margin-right: 200px;">
+      <h1 >    <strong>{{ company.name}}  company</strong></h1>
+      <p  >Description:    <strong>{{ company.description|linebreaksbr }}</strong></p>
+      <p >Address:    <strong>{{ company.address}}</strong></p>
+      <p >Contacts:   <strong>{{ company.email}}</strong></p>
+    </div>
+
+  </main>
+{% endblock %}
