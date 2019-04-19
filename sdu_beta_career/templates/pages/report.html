@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block main %}
+<main>
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100 ver1 m-b-110">
+					<div class="table100-head">
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">Weeks</th>
+									<th class="cell100 column2">Deadline</th>
+									<th class="cell100 column3">Status</th>
+									<th class="cell100 column4">Approver</th>
+									<th class="cell100 column5">Mark</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+
+					<div class="table100-body js-pscroll">
+						<table>
+							<tbody>
+								<tr class="row100 body">
+									<td class="cell100 column1">Week 1</td>
+									<td class="cell100 column2">08.09.2019</td>
+									<td class="cell100 column3">Turned In</td>
+									<td class="cell100 column4">Rashid Baimukashev</td>
+									<td class="cell100 column5">100</td>
+								</tr>
+
+								<tr class="row100 body">
+									<td class="cell100 column1">Week 2</td>
+									<td class="cell100 column2">15.09.2019</td>
+									<td class="cell100 column3">Turned In</td>
+									<td class="cell100 column4">Rashid Baimukashev</td>
+									<td class="cell100 column5">100</td>
+								</tr>
+
+								<tr class="row100 body">
+									<td class="cell100 column1">Week 3</td>
+									<td class="cell100 column2">22.09.2019</td>
+									<td class="cell100 column3">Turned In</td>
+									<td class="cell100 column4">Rashid Baimukashev</td>
+									<td class="cell100 column5">100</td>
+								</tr>
+
+								<tr class="row100 body">
+									<td class="cell100 column1">Week 4</td>
+									<td class="cell100 column2">29.09.2019</td>
+									<td class="cell100 column3">Turned In</td>
+									<td class="cell100 column4">Rashid Baimukashev</td>
+									<td class="cell100 column5">100</td>
+								</tr>
+
+								<tr class="row100 body">
+									<td class="cell100 column1">Week 5</td>
+									<td class="cell100 column2">06.10.2019</td>
+									<td class="cell100 column3">Turned In</td>
+									<td class="cell100 column4">Rashid Baimukashev</td>
+									<td class="cell100 column5">100</td>
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../../static/js/report_perfect-scrollbar.min.js"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			var ps = new PerfectScrollbar(this);
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+
+
+	</script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+</main>
+{% endblock %}
+
