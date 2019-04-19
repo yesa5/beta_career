@@ -19,7 +19,9 @@ urlpatterns = [
     path("resumes/", include('sdu_beta_career.resumes.urls', namespace='resumes')),
     # Your stuff: custom urls includes go here
     path("account/login/", TemplateView.as_view(template_name="account/account_login.html"), name="login"),
-    # Reports
+    # Companies
+    path("companies/", include("sdu_beta_career.companies.urls", namespace="companies")),
+      # Reports
     path("report/", TemplateView.as_view(template_name="pages/report.html"), name="report"),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
