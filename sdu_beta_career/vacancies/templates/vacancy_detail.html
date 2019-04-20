@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block main %}
+  <main class="page-content">
+    <div class="vacancy"  style="background-color: #eeeeee; border-radius: 5px;  margin-right: 200px;">
+      <h1 >    <strong>{{ vacancy.name}}  </strong></h1>
+      <p  >Price:    <strong>{{ vacancy.price|linebreaksbr }}</strong></p>
+      <p >Responsibility:    <strong>{{ vacancy.responsibility}}</strong></p>
+      <p >Requirements:   <strong>{{ vacancy.requirements}}</strong></p>
+      <p >Conditions:   <strong>{{ vacancy.conditions}}</strong></p>
+      <p >Skills:   <strong>{{ vacancy.skills}}</strong></p>
+      <p></p>
+    </div>
+
+  </main>
+{% endblock %}

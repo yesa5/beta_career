@@ -21,6 +21,8 @@ urlpatterns = [
     path("account/login/", TemplateView.as_view(template_name="account/account_login.html"), name="login"),
     # Companies
     path("companies/", include("sdu_beta_career.companies.urls", namespace="companies")),
+    # Vacancies
+    path("vacancies/", include("sdu_beta_career.vacancies.urls", namespace="vacancies")),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
