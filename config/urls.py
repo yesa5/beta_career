@@ -23,6 +23,8 @@ urlpatterns = [
     path("companies/", include("sdu_beta_career.companies.urls", namespace="companies")),
       # Reports
     path("report/", TemplateView.as_view(template_name="pages/report.html"), name="report"),
+    # Vacancies
+    path("vacancies/", include("sdu_beta_career.vacancies.urls", namespace="vacancies")),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

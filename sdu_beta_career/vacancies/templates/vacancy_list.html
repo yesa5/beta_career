@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+   <main class="page-content">
+    <div class="container-fluid" style="">
+
+
+  <h1 align="center">Vacancies</h1>
+
+
+
+
+
+{% for vacancy in vacancies %}
+
+<div class="vacancy_list"  style="background-color: #eeeeee; margin-bottom: 20px; padding-bottom: 5px; border-radius: 5px; margin-right:200px;">
+  <h3 style="margin: 10px; padding: 10px;"><a href="{% url 'vacancies:vacancy_detail' pk=vacancy.pk %}">{{ vacancy.name }}</a></h3>
+        <strong style=" margin-left: 10px;">{{ vacancy.company }}</strong><br>
+  <em style="margin-left: 10px;">{{ vacancy.price }} tenge</em><br>
+        <em style="margin-left: 10px;">{{ vacancy.skills}}</em><br>
+
+
+
+</div>
+
+ {% endfor %}
+
+    </div>
+  </main>
+
+{% endblock %}
